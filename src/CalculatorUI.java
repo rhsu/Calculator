@@ -10,6 +10,7 @@
 //TODO: Creates new Dialog Box when the user clicks the button, not on init.
 
 import coreLibrary.*;
+import java.awt.event.KeyEvent;
 
 /**
  * 
@@ -464,6 +465,9 @@ public class CalculatorUI extends javax.swing.JFrame
         txtResult.setRows(5);
         txtResult.setWrapStyleWord(true);
         txtResult.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                keyPressedEvent(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 keyTypedEvent(evt);
             }
@@ -544,12 +548,12 @@ public class CalculatorUI extends javax.swing.JFrame
     }// </editor-fold>//GEN-END:initComponents
 
 	/**
-	 * Triggers when a button is pressed except for the clear button
+	 * Triggers when a button is pressed except for the clear button and equal button
 	 * @param evt	The action event that triggers the function
 	 */
     private void btnPressed(java.awt.event.ActionEvent evt) 
 	{//GEN-FIRST:event_btnPressed
-        appendDisplay(evt.getActionCommand());
+		appendDisplay(evt.getActionCommand());
     }//GEN-LAST:event_btnPressed
 
 	/**
@@ -610,6 +614,7 @@ public class CalculatorUI extends javax.swing.JFrame
 	 */
     private void keyTypedEvent(java.awt.event.KeyEvent evt) 
 	{//GEN-FIRST:event_keyTypedEvent
+		//System.out.println(evt.getKeyChar());
 		appendDisplay(String.valueOf(evt.getKeyChar()));
     }//GEN-LAST:event_keyTypedEvent
 
@@ -628,6 +633,37 @@ public class CalculatorUI extends javax.swing.JFrame
     private void ShowAboutDialog(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowAboutDialog
 		jDialogAbout.setVisible(true);
     }//GEN-LAST:event_ShowAboutDialog
+
+    private void keyPressedEvent(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_keyPressedEvent
+		//System.out.println(evt.getKeyCode());
+		if(evt.getKeyCode() == KeyEvent.VK_ESCAPE)
+		{
+			display.setLength(0);
+			expressionEvaluator.ClearExpression();
+			txtResult.setText(display.toString());
+		}
+		else if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+		{
+			//System.out.println("enter pressed");
+			
+			expressionEvaluator.SetExpression(display.toString().trim());
+			
+			try 
+			{
+				txtResult.setText(expressionEvaluator.evaluate());
+				//System.out.println(expressionEvaluator.evaluate());
+			}
+			catch (Exception ex) 
+			{
+				txtResult.setText(ex.toString());
+			}
+			/*finally
+			{
+				expressionEvaluator.ClearExpression();
+				display.setLength(0);
+			}*/
+		}
+    }//GEN-LAST:event_keyPressedEvent
 
 	/**
 	 * Launches the calculator GUI
