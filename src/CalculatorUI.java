@@ -149,12 +149,14 @@ public class CalculatorUI extends javax.swing.JFrame
                 .addGap(0, 44, Short.MAX_VALUE))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 keyTypedEvent(evt);
             }
         });
+
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jButton1.setText("1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
