@@ -1,14 +1,3 @@
-//TODO: Feature request: Some way to get the expression after its evaulated. Maybe on hover?
-//TODO: Implement decimals
-//TODO: Implement negative number handler
-//TODO: Allow user to debug their expression
-//TODO: JavaBeans
-//TODO: Keyboard: KeyBindings instead of key event
-
-//TODO: Make the dialog boxes into the same one. Check out how oracle did it. Maybe make two panels and load the correct panel.
-//TODO: Set default size and position for the dialog boxes
-//TODO: Creates new Dialog Box when the user clicks the button, not on init.
-
 import coreLibrary.*;
 
 /**
@@ -558,7 +547,6 @@ public class CalculatorUI extends javax.swing.JFrame
 	 * Adds the input parameter onto the display and string buffer for evaluating purposes, accordingly to the type of token
 	 * @param token		A string entered by the user
 	 */
-	//TODO: This is a bit risky and should throw an error as soon as key bindings is implemented.
 	private void appendDisplay(String token)
 	{
 		if(PublicFunctions.isInteger(token))

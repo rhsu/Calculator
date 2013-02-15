@@ -49,7 +49,6 @@ public class ShuntingYard
         LinkedList<String>s_output = new LinkedList<String>();
         
 		//Split the string into tokens. 
-		//TODO: Create a Grammar to check for language
 		String[] expression = expressionString.split("\\s+");
 
 		//Begin the Shunting Yard Alogrithm
@@ -77,8 +76,6 @@ public class ShuntingYard
                 s_operator.pop(); //pop the left paran off
             }
 
-			//TODO: Implement functions. Define a language and make the user be able to set functions
-			
 			//If the token is an operator - o1
 			else
             {

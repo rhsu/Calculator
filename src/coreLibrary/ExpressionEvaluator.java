@@ -68,7 +68,6 @@ public class ExpressionEvaluator
     	
 	private String GetValue(String a, String b, String operator) throws Exception
 	{		
-		//TODO: Add in BigDecimal and decimal
 		switch(format)
 		{
 			case INTEGER:
@@ -165,7 +164,6 @@ public class ExpressionEvaluator
 				}
 				catch(Exception e)
 				{
-					//TODO: If an overflow happens try running everything again using big integer...
 					throw new NumberOverflowException();
 				}
 				stack.push(val);

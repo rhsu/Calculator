@@ -11,13 +11,11 @@ import javax.swing.JFrame;
 
 public class LinePlotter 
 {
-	//TODO make a GUI for this and Integrate it with the CalclatorGUI
 	public LinePlotter()
 	{
 		PlotComponent painter = new PlotComponent();
 		JFrame frameLinePlotter = new JFrame("Line Plotter");
 		frameLinePlotter.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//TODO user should be able to custom set size
 		frameLinePlotter.setSize(500,500);
 		frameLinePlotter.setVisible(true);
 		frameLinePlotter.add(painter);
