@@ -150,6 +150,11 @@ public class CalculatorUI extends javax.swing.JFrame
         });
 
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                keyPressedEvent(evt);
+            }
+        });
 
         jButton1.setText("1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -158,6 +163,9 @@ public class CalculatorUI extends javax.swing.JFrame
             }
         });
         jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                keyPressedEvent(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 keyTypedEvent(evt);
             }
@@ -213,6 +221,9 @@ public class CalculatorUI extends javax.swing.JFrame
             }
         });
         jButtonAdd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                keyPressedEvent(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 keyTypedEvent(evt);
             }
@@ -316,6 +327,9 @@ public class CalculatorUI extends javax.swing.JFrame
             }
         });
         jButtonEquals.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                keyPressedEvent(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 keyTypedEvent(evt);
             }
@@ -628,23 +642,28 @@ public class CalculatorUI extends javax.swing.JFrame
     }//GEN-LAST:event_ShowAboutDialog
 
     private void keyPressedEvent(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_keyPressedEvent
-		//System.out.println(evt.getKeyCode());
+		
+		evt.consume();
 		if(evt.getKeyCode() == KeyEvent.VK_ESCAPE)
 		{
+			evt.consume();
 			display.setLength(0);
 			expressionEvaluator.ClearExpression();
+			evt.consume();
+
 			txtResult.setText(display.toString());
+			txtResult.setText("CLEARED!!!");
+			//System.out.println("here");
 		}
 		else if(evt.getKeyCode() == KeyEvent.VK_ENTER)
 		{
-			//System.out.println("enter pressed");
-			
-			expressionEvaluator.SetExpression(display.toString().trim());
-			
+			expressionEvaluator.SetExpression(display.toString().trim());	
 			try 
 			{
-				txtResult.setText(expressionEvaluator.evaluate());
-				//System.out.println(expressionEvaluator.evaluate());
+				String s = expressionEvaluator.evaluate();
+				txtResult.setText(s);
+				//System.out.println("here???");
+				System.out.println(s);
 			}
 			catch (Exception ex) 
 			{
