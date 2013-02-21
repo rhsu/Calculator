@@ -11,6 +11,7 @@ import java.awt.event.KeyEvent;
  */
 public class CalculatorUI extends javax.swing.JFrame 
 {
+	//<editor-fold defaultstate="collapsed" desc="PRIVATE">
 	/**
 	 * String Buffer representing the text to be displayed
 	 */
@@ -19,7 +20,7 @@ public class CalculatorUI extends javax.swing.JFrame
 	 * An instance of the ExpressionEvaluator object
 	 */
     private ExpressionEvaluator expressionEvaluator;
-	
+	//</editor-fold>
 	
 	/**
 	 * The main constructor for building a calculator
