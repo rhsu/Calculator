@@ -1,3 +1,5 @@
+package Application;
+
 import coreLibrary.*;
 import java.awt.event.KeyEvent;
 
@@ -34,7 +36,7 @@ public class CalculatorUI extends javax.swing.JFrame
 	 * @param expression	The expression to set the GUI at startup with.
 	 * @see   Constants for parameters that can be used in the constructor
 	 */
-	CalculatorUI(String expression)
+	public CalculatorUI(String expression)
 	{
 		display = new StringBuffer(expression);
         expressionEvaluator = new ExpressionEvaluator();

@@ -1,3 +1,6 @@
+package Tests;
+
+import Application.CalculatorUI;
 import coreLibrary.Constants;
 
 public class TestCalculatorUI 
